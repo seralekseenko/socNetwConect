@@ -3,7 +3,7 @@ class UnionFind {
     private int[] id;
     private int[] treeSize;
 
-    UnionFind(int n){
+    UnionFind(int n) {
         id = new int[n];
         treeSize = new int[n];
         for (int i = 0; i < n; i++) {
@@ -13,15 +13,19 @@ class UnionFind {
         }
     }
 
-    private int root(int i){
+    int find(int i) {
+      return i;
+    }
+
+    private int root(int i) {
         while(i != id[i]){
             id[i] = id[id[i]];
             i = id[i];
         }
         return i;
     }
-//I think this method should return the current size of the tree.
-    int union(int p, int q){
+    // I think this method should return the current size of the tree.
+    int union(int p, int q) {
         int i = root(p);
         int j = root(q);
 
@@ -29,11 +33,11 @@ class UnionFind {
         if  (treeSize[i] < treeSize[j]) {
             id[i] = j;
             treeSize[j] += treeSize[i];
-            return treeSize[j];//The current size of the tree.
+            return treeSize[j];// The current size of the tree.
         }  else{
             id[j] = i;
             treeSize[i] += treeSize[j];
-            return treeSize[i];//The current size of the tree.
+            return treeSize[i];// The current size of the tree.
         }
     }
 }
