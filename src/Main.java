@@ -30,7 +30,7 @@ public class Main {
         int LOG_TIME_LENGTH = logTime.length;
         // Also "i" is equal to the timestamp.
         for (int i = 0; i < LOG_TIME_LENGTH; i++) {
-            testUnion(unionFind, logTime, i, nMembers);
+            testUnionAndTreeSize(unionFind, logTime, i, nMembers);
 
             testFind((Integer) logTime[i].getKey(), unionFind);
 
@@ -43,7 +43,7 @@ public class Main {
 
         System.out.println("#maximum in a branch: " + unionFind.find(i) + ";");
     }
-    private static void testUnion(UnionFind unionFind, Pair[] logTime, int i, int nMembers) {
+    private static void testUnionAndTreeSize(UnionFind unionFind, Pair[] logTime, int i, int nMembers) {
         System.out.println("Time is: " + i);
         // According to the time log, I invoke the merge method.
         unionFind.union((Integer) logTime[i].getKey(), (Integer) logTime[i].getValue());
