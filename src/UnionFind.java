@@ -42,10 +42,6 @@ class UnionFind {
         maxElement[i] = max;
         maxElement[j] = max;
 
-        if (maxElement[i] < maxElement[j]) {
-
-        }
-
         if  (treeSize[i] < treeSize[j]) {
             id[i] = j;
             treeSize[j] += treeSize[i];
